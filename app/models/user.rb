@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :subscriptions, foreign_key: :follower_id,
-				dependent: :destroy
+						dependent: :destroy
 	has_many :leaders, through: :subscriptions
-
-
+		
 	has_many :reverse_subscriptions, foreign_key: :leader_id,
 									class_name: 'Subscription',
 									dependent: :destroy
@@ -12,6 +11,9 @@ class User < ActiveRecord::Base
 	has_many :posts, dependent: :destroy
 	has_many :text_posts, dependent: :destroy
 	has_many :image_posts, dependent: :destroy
+
+	has_secure_password 
+	validates :email, presence: true, uniqueness: true
 
 		def following?(leader)
 			leaders.include? leader
