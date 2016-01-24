@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
 	has_secure_password 
 	validates :email, presence: true, uniqueness: true
 
+		def 
+			timeline_user_ids
+			leader_ids + [id] 
+		end
+
+
 		def following?(leader)
 			leaders.include? leader
 		end
@@ -22,8 +28,9 @@ class User < ActiveRecord::Base
 		def follow!(leader)
 			if leader != self && !following?(leader)
 				leaders << leader
-			
 		end
+
+
 	
 	end
 end
