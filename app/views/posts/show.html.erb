@@ -4,3 +4,16 @@
 
  <%= render @post %> 
 <%= link_to "Home", posts_path, class: "btn btn-default" %> 
+
+<h3>Comments<h3>
+<%= render @post.comments %>
+<h4>New Comment</h4>
+<%= form_for @post.comments.build do |f| %>
+  <div class="form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+
+  <%= f.hidden_field :post_id %> 
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

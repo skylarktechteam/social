@@ -5,6 +5,10 @@
 
        <%= text_post.title %> 
    	 </h3>
+
+   	 <%= link_to(
+          "#{time_ago_in_words text_post.created_at} ago",
+          post_path(text_post)) %>
   </div>
 
    <div class="panel-body"> 
