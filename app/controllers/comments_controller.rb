@@ -14,7 +14,8 @@ before_action :authenticate_user!
     end
   end
 
-  Private
+Private
+
   def comment_params
     params.require(:comment).permit(:body, :post_id)
   end

@@ -11,8 +11,8 @@
 <h4>New Comment</h4>
 			<%= form_for @post.comments.build do |f| %>
 			 <div class="form-group">
-		    <%= f.label :body %><br>
-		    <%= f.text_area :body, class: "form-control" %>
+		    	<%= f.label :body %><br>
+		   		<%= f.text_area :body, class: "form-control" %>
 		  </div>
 
   <%= f.hidden_field :post_id %> 
