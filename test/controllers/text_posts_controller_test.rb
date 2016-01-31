@@ -10,14 +10,13 @@ class TextPostsControllerTest < ActionController::TestCase
 			assert_response :success
 	end
 
-
-	test "should create post" do
-		user = users(:user1)
-		params = {
-			text_post: {
-				title: "Test Title"
-				body: "Test Body" 
-			}
+			test "should create post" do
+				user = users(:user1)
+				params = {
+					text_post: {
+					title: "Test Title",
+					body: "Test Body"
+				}
 			}
 
 	post :create, params, { user_id: user.id }

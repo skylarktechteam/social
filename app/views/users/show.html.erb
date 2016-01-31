@@ -6,7 +6,7 @@
 <% if current_user != @user && !current_user.following?(@user) %>
 
 <%= link_to "Follow", follow_user_path(@user), 
-class: "btn btn-default" %>	
+method: :post, class: "btn btn-default" %>	
 <% end %>
 <% #end %>
 
