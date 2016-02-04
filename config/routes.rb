@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   post 'follow/:id', to: 'users#follow', as: 'follow_user'
 
+  
 
 	get 'login', to: 'sessions#new', as: 'login'
 	post 'logout', to: 'sessions#destroy', as: 'logout'
-
+  #delete 'logout', to: 'sessions#destroy', as: 'logout'
+  
   root 'posts#index'
 
 
