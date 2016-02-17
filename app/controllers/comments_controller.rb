@@ -32,7 +32,7 @@ before_action :authenticate_user!
 private 
 
   def comment_params
-  #  params.require(:comments).permit(:body, :post_id)
+    params.require(:comment).permit(:body, :post_id)
   end
 
 end
