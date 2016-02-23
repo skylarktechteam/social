@@ -1,25 +1,35 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      <%= image_post.title %>
-    </h3>
-          <%= link_to "#{time_ago_in_words image_post.created_at} ago",
-          post_path(image_post) %>
-  </div>
-  
-  <div class="panel-body">
+<% cache image_post do %>
+ 
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <%= image_post.title %>
+      </h3>
+            <%= link_to "#{time_ago_in_words image_post.created_at} ago",
+            post_path(image_post) %>
+    </div>
     
-    
-    <p><em>By <%= link_to image_post.user.name, image_post.user %></em></p>
-            <%= image_tag image_post.url, class: "img-responsive" %>
-            <%= image_post.body %>
-            <% if image_post.user == current_user %>
-    <p>
-          <%= link_to 'Edit', edit_image_post_path(image_post),
-                class: "btn btn-default" %>
-         </p>
-      <% end %>
+    <div class="panel-body">
+      
+      
+      <p><em>By <%= link_to image_post.user.name, image_post.user %></em></p>
+                       <%= sanitize image_post.body %>
+                       <p><%= pluralize image_post.cached_comment_count, "Comment" %></p>
 
-   
+              <%= image_tag image_post.url, class: "img-responsive" %>
+              <%= image_post.body %>
+
+           
+        <% end %>
+
+     
+    </div>
   </div>
-</div>
+
+  <p>    
+              <% if image_post.user == current_user %>
+            <%= link_to 'Edit', edit_image_post_path(image_post),
+                  class: "btn btn-default" %>
+           </p>
+
+<% end %>
