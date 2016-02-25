@@ -6,7 +6,9 @@
 <%= link_to "Home", posts_path, class: "btn btn-default" %> 
 
 <h3>Comments<h3>
+<% cache [@post, 'comments', @can_moderate] do %>
 <%= render @post.comments %>
+<% end %>
 
 <h4>New Comment</h4>
 	<%= form_for @post.comments.build do |f| %>

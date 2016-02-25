@@ -1,8 +1,10 @@
-<p><em><%= comment.user.name %> said:</em></p>
-<p><%= comment.body %></p>
-	<% if @can_moderate %>
-	<p>
-	<%= link_to 'Destroy', comment_path(comment),
-		method: :delete, class: "btn btn-default" %>
-	</p>
+<% cache [comment, @can_moderate] do %>
+	<p><em><%= comment.user.name %> said:</em></p>
+	<p><%= comment.body %></p>
+		<% if @can_moderate %>
+		<p>
+		<%= link_to 'Destroy', comment_path(comment),
+			method: :delete, class: "btn btn-default" %>
+		</p>
+	<% end %>
 <% end %>
