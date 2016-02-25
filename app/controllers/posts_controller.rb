@@ -3,18 +3,18 @@ class PostsController < ApplicationController
 
 	def index
 
-		logger.debug "** current_user.inspect = "
-		logger.debug current_user.inspect
-		  user_ids = current_user.timeline_user_ids
+		#logger.debug "** current_user.inspect = "
+	#	logger.debug current_user.inspect
+		user_ids = current_user.timeline_user_ids
 
-		  debugger
+		 # debugger
 
    			@posts = Post.includes(:user).where(user_id: user_ids)
    			.paginate(page: params[:page], per_page: 5)
    			.order("created_at DESC")
 
    		@posts.each do |post|
-        logger.debug "Post #{post.id} is a #{post.type}"
+      #  logger.debug "Post #{post.id} is a #{post.type}"
 		end
 	end
 

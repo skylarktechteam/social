@@ -22,13 +22,15 @@
            
         <% end %>
 
-     <%= debug image_post %>
+    
     </div>
+
+            
   </div>
 
   <p>    
               <% if image_post.user == current_user %>
-            <%= link_to 'Edit', edit_image_post_path(image_post),
+             <%= link_to 'Edit', edit_image_post_path(image_post),
                   class: "btn btn-default" %>
            </p>
 
