@@ -28,6 +28,8 @@ gem 'bootstrap-sass'
 gem 'will_paginate'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+#use responders for json 
+gem 'responders', '~> 2.0' 
 
 # Use Unicorn as the app server
 # gem 'unicorn'

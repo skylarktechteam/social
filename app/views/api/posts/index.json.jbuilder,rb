@@ -1,0 +1,3 @@
+json.array! @posts
+json.extract! post, :id, :title, :body, :url
+end
