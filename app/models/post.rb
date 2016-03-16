@@ -15,7 +15,9 @@ def cached_comment_count
 end
 
 def as_json(options={})
-	super(only: [:id, :title])	
+	super(except: [:user_id], include: :user,
+	methods: :cached_comment_count)
+
 end
 
 end
