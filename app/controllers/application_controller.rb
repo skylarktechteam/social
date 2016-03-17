@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
       redirect_to login_path unless current_user
     end
 
+    def authenticate_token!
+       authenticate_or_request_with_http_token do |token, options|
+         @api_user = User.find_by(api_token: token)
+    end
+end
+
 end
